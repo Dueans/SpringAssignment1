@@ -15,8 +15,7 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @RequestMapping("/register")
-    @GetMapping
+    @GetMapping("/register")
     public String register(String username,String password, Model model) {
 
         String msg = "register ";
@@ -31,8 +30,7 @@ public class UserController {
         return "success";
     }
 
-    @RequestMapping("/login")
-    @GetMapping
+    @GetMapping("/login")
     public String login(String username, String password, Model model) {
         String msg = "login ";
 
