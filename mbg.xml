@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <context id="DB2Tables" targetRuntime="MyBatis3Simple">
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://8.136.0.226:3306/EbookStore?characterEncoding=utf-8&amp;useUnicode=true"
+                        userId="root"
+                        password="926997">
+        </jdbcConnection>
+
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="com.bjtu.bean" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="mybatis.mapper"  targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.bjtu.dao"  targetProject="src/main/java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+        <table tableName="user" domainObjectName="User" />
+        <table tableName="book" domainObjectName="Book" />
+        <table tableName="user_order" domainObjectName="Order" />
+        <table tableName="cart" domainObjectName="Cart" />
+        <table tableName="order_item" domainObjectName="OrderItem" />
+
+    </context>
+</generatorConfiguration>
