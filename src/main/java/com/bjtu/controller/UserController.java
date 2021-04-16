@@ -16,14 +16,13 @@ public class UserController {
     UserService userService;
 
     @GetMapping("/register")
-    public String register(String username,String password, Model model) {
+    public String register(String username, String password, Model model) {
+        String msg;
 
-        String msg = "register ";
-
-        if (userService.register(username,password)) {
-            msg += "succeed";
+        if (userService.register(username, password)) {
+            msg = "注册成功";
         } else {
-            msg += "fail";
+            msg = "用户名已存在";
         }
 
         model.addAttribute("msg", msg);
@@ -32,17 +31,20 @@ public class UserController {
 
     @GetMapping("/login")
     public String login(String username, String password, Model model) {
-        String msg = "login ";
+        String msg;
 
-        if (userService.login(username,password)) {
-            msg += "succeed";
+        User user = userService.login(username, password);
+
+        if (user == null) {
+            msg = "登陆失败";
+        } else if (user.getIsAdmin()) {
+            msg = "管理员登录";
         } else {
-            msg += "fail";
+            msg = "普通用户登录";
         }
 
         model.addAttribute("msg", msg);
         return "success";
     }
-
 
 }

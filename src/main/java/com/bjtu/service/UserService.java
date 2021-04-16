@@ -16,7 +16,19 @@ public class UserService {
         return userMapper.insert(user) == 1;
     }
 
-    public boolean login(String username,String password){
-        return password.equals(userMapper.selectByUsername(username).getPassword());
+    public User login(String username,String password){
+
+        return userMapper.selectByUsername(username);
     }
+
+    public boolean changePassword(int userId,String newPassword){
+
+        return false;
+    }
+
+    // 注销账户
+    public boolean cancelAccount(){
+        return false;
+    }
+
 }
