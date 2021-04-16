@@ -1,5 +1,8 @@
 package com.bjtu.bean;
 
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
 public class Cart {
     private Integer userId;
     private Integer bookId;

@@ -1,7 +1,10 @@
 package com.bjtu.bean;
 
+import lombok.AllArgsConstructor;
+
 import java.math.BigDecimal;
 
+@AllArgsConstructor
 public class Book {
     private Integer bookId;
     private String title;

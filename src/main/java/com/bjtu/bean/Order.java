@@ -1,8 +1,11 @@
 package com.bjtu.bean;
 
+import lombok.AllArgsConstructor;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
+@AllArgsConstructor
 public class Order {
     private Integer orderId;
     private Integer userId;

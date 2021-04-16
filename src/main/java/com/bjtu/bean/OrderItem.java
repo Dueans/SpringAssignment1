@@ -1,5 +1,8 @@
 package com.bjtu.bean;
 
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
 public class OrderItem {
     private Integer orderId;
     private Integer bookId;
