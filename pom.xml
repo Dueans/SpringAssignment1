@@ -252,26 +252,6 @@
             <artifactId>mybatis</artifactId>
             <version>3.4.6</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/net.sf.ehcache/ehcache-core -->
-        <!--<dependency>
-            <groupId>net.sf.ehcache</groupId>
-            <artifactId>ehcache-core</artifactId>
-            <version>2.6.11</version>
-        </dependency>-->
-        <!-- https://mvnrepository.com/artifact/org.mybatis.caches/mybatis-ehcache -->
-        <!--<dependency>
-            <groupId>org.mybatis.caches</groupId>
-            <artifactId>mybatis-ehcache</artifactId>
-            <version>1.0.3</version>
-        </dependency>-->
-        <!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-boot-starter -->
-        <!--<dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.3.2</version>
-        </dependency>-->
-
-
     </dependencies>
 
     <build>
