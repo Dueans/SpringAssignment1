@@ -42,7 +42,7 @@ public class UserController {
             msg = "普通用户登录";
         }
 
-        model.addAttribute("msg", msg);
+        model.addAttribute("user", user);
         return "index";
     }
 
