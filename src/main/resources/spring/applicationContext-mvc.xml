@@ -12,10 +12,10 @@
     <mvc:annotation-driven/>
     <mvc:default-servlet-handler/>
 
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" id="internalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/pages/"/>
-        <property name="suffix" value=".jsp"/>
-    </bean>
+<!--    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" id="internalResourceViewResolver">-->
+<!--        <property name="prefix" value="/WEB-INF/pages/"/>-->
+<!--        <property name="suffix" value=".jsp"/>-->
+<!--    </bean>-->
 
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="defaultEncoding" value="utf-8"/>
@@ -25,7 +25,7 @@
     <!--thymeleaf模板解析器-->
     <bean id="templateResolver" class="org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver">
         <!--前缀配置-->
-        <property name="prefix" value="/"/>
+        <property name="prefix" value="/WEB-INF/templates/"/>
         <!--后缀配置-->
         <property name="suffix" value=".html"/>
         <!--模板类型-->

@@ -9,13 +9,6 @@ public class User {
     private String password;
     private Boolean isAdmin;
 
-    public User(Integer userId, String username, String password, Boolean isAdmin) {
-        this.userId = userId;
-        this.username = username;
-        this.password = password;
-        this.isAdmin = isAdmin;
-    }
-
     public Integer getUserId() {
         return userId;
     }

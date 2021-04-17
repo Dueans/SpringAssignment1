@@ -11,9 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class UserController {
-
     @Autowired
-    UserService userService;
+    private UserService userService;
 
     @GetMapping("/register")
     public String register(String username, String password, Model model) {
@@ -26,7 +25,7 @@ public class UserController {
         }
 
         model.addAttribute("msg", msg);
-        return "success";
+        return "index";
     }
 
     @GetMapping("/login")
@@ -44,7 +43,7 @@ public class UserController {
         }
 
         model.addAttribute("msg", msg);
-        return "success";
+        return "index";
     }
 
 }
