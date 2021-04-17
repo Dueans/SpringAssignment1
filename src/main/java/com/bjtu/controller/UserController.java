@@ -6,13 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class UserController {
     @Autowired
     private UserService userService;
+
+    @GetMapping("/index")
+    public String index() {return "index";}
 
     @GetMapping("/register")
     public String register(String username, String password, Model model) {
@@ -35,11 +36,7 @@ public class UserController {
         User user = userService.login(username, password);
 
         if (user == null) {
-            msg = "登陆失败";
-        } else if (user.getIsAdmin()) {
-            msg = "管理员登录";
-        } else {
-            msg = "普通用户登录";
+            return "";
         }
 
         model.addAttribute("user", user);
