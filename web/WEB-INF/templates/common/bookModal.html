@@ -2,7 +2,8 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <aside th:fragment="bookModal">
     <!-- 登录模态框（Modal） -->
-    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
+         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -58,7 +59,8 @@
         </div>
     </div>
     <!-- 注册modal end/.modal -->
-    <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="regModalLabel" aria-hidden="true">
+    <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="regModalLabel"
+         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -75,7 +77,8 @@
                         <div class="form-group has-feedback">
                             <label class="col-sm-2 control-label">用户名</label>
                             <div class="col-sm-5">
-                                <input type="text" name="username" class="form-control" required placeholder="小写字母开头,不含中文." th:onblur="|checkUser(this)|">
+                                <input type="text" name="username" class="form-control" required
+                                       placeholder="小写字母开头,不含中文." th:onblur="|checkUser(this)|">
                                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
                             </div>
                             <div id="msg" class="col-sm-3" style="padding-top: 10px; display: none">
@@ -85,52 +88,19 @@
                         <div class="form-group has-feedback">
                             <label class="col-sm-2 control-label">密码</label>
                             <div class="col-sm-5">
-                                <input type="password" name="password" class="form-control" placeholder="密码长度6-8位" minlength="6" maxlength="8">
-                                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                            </div>
-                            <!--<div class="col-sm-3" style="padding-top: 10px;">
-                                <label class="alert-danger">密码不正确</label>
-                            </div>-->
-                        </div>
-                        <div class="form-group has-feedback">
-                            <label class="col-sm-2 control-label">确认密码</label>
-                            <div class="col-sm-5">
-                                <input type="password" class="form-control" id="lastname2" minlength="6" maxlength="8" placeholder="和密码保持一致">
+                                <input type="password" name="password" class="form-control" id="pwd" placeholder="密码长度6-16位"
+                                       minlength="6" maxlength="16">
                                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                             </div>
                         </div>
-
-                        <div class="form-group has-feedback">
-                            <label class="col-sm-2 control-label">邮箱</label>
-                            <div class="col-sm-5">
-                                <input type="email" name="email" class="form-control" placeholder="合法邮箱格式">
-                                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                            </div>
-                        </div>
-
-                        <div class="form-group has-feedback">
-                            <label class="col-sm-2 control-label">电话</label>
-                            <div class="col-sm-5">
-                                <input type="tel" name="phone" class="form-control" placeholder="合法手机格式">
-                                <span class="glyphicon glyphicon-earphone form-control-feedback"></span>
-                            </div>
-                        </div>
-
-                        <div class="form-group has-feedback">
-                            <label class="col-sm-2 control-label">公司</label>
-                            <div class="col-sm-5">
-                                <input type="text" name="company" class="form-control" placeholder="请输入公司地址">
-                                <span class="glyphicon glyphicon-home form-control-feedback"></span>
-                            </div>
-                        </div>
-
-                        <!--<div class="form-group has-feedback">
-                            <label class="col-sm-2 control-label">地址</label>
-                            <div class="col-sm-5">
-                                <input type="text" class="form-control" placeholder="请输入收货">
-                                <span class="glyphicon glyphicon-home form-control-feedback"></span>
-                            </div>
-                        </div>-->
+<!--                        <div class="form-group has-feedback">-->
+<!--                            <label class="col-sm-2 control-label">确认密码</label>-->
+<!--                            <div class="col-sm-5">-->
+<!--                                <input type="password" class="form-control" id="confirmPwd" minlength="6" maxlength="8"-->
+<!--                                       placeholder="和密码保持一致">-->
+<!--                                <span class="glyphicon glyphicon-lock form-control-feedback"></span>-->
+<!--                            </div>-->
+<!--                        </div>-->
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>

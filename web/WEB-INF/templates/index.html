@@ -45,15 +45,15 @@
 
 			//加载其他页数据
 			function loadData(page,category) {
-			    var node;
-			    if(category == 1){
-			        node = "selected";
-				} else if(category == 2) {
-			        node = "recommend";
-				}else {
-                    node = "bargain";
-				}
-                $("#" + node).load(contextPath + "/book/getBookData",buildQuery(page,category));
+			    // var node;
+			    // if(category == 1){
+			    //     node = "selected";
+				// } else if(category == 2) {
+			    //     node = "recommend";
+				// }else {
+                //     node = "bargain";
+				// }
+                // $("#" + node).load(contextPath + "/book/getBookData",buildQuery(page,category));
             }
             
             //包装查询参数

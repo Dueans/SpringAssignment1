@@ -6,6 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class UserController {
@@ -15,32 +20,29 @@ public class UserController {
     @GetMapping("/index")
     public String index() {return "index";}
 
-    @GetMapping("/register")
-    public String register(String username, String password, Model model) {
-        String msg;
-
-        if (userService.register(username, password)) {
-            msg = "注册成功";
-        } else {
-            msg = "用户名已存在";
-        }
-
-        model.addAttribute("msg", msg);
-        return "index";
+    @ResponseBody
+    @PostMapping("/user/checkUsername")
+    public String checkUsername(String username){
+        return userService.checkUsername(username);
     }
 
-    @GetMapping("/login")
-    public String login(String username, String password, Model model) {
-        String msg;
+    @ResponseBody
+    @RequestMapping("/user/register")
+    public String register(User user) {
+        return userService.register(user);
+    }
 
-        User user = userService.login(username, password);
+    @ResponseBody
+    @RequestMapping("/user/login")
+    public String login(User user, HttpSession httpSession) {
+        return userService.login(user,httpSession);
+    }
 
-        if (user == null) {
-            return "";
-        }
-
-        model.addAttribute("user", user);
-        return "index";
+    @ResponseBody
+    @RequestMapping("/user/logout")
+    public String logout(HttpSession httpSession) {
+        httpSession.invalidate();
+        return "redirect:index";
     }
 
 }
