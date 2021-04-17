@@ -1,0 +1,79 @@
+<changelist name="Uncommitted_changes_before_Update_at_2021_4_17_13_27_[Default_Changelist]" date="1618637269177" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_4_17_13_27_[Default_Changelist]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 2021/4/17 13:27 [Default Changelist]" />
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/bjtu/bean/User.class" />
+    <option name="AFTER_PATH" value="target/classes/com/bjtu/bean/User.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_4_17_13_27_[Default_Changelist]/User.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/bjtu/bean/Cart.class" />
+    <option name="AFTER_PATH" value="target/classes/com/bjtu/bean/Cart.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_4_17_13_27_[Default_Changelist]/Cart.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/bjtu/dao/CartMapper.class" />
+    <option name="AFTER_PATH" value="target/classes/com/bjtu/dao/CartMapper.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_4_17_13_27_[Default_Changelist]/CartMapper.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/bjtu/controller/HelloController.class" />
+    <option name="AFTER_PATH" value="target/classes/com/bjtu/controller/HelloController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_4_17_13_27_[Default_Changelist]/HelloController.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/bjtu/bean/OrderItem.class" />
+    <option name="AFTER_PATH" value="target/classes/com/bjtu/bean/OrderItem.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_4_17_13_27_[Default_Changelist]/OrderItem.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/bjtu/dao/UserMapper.class" />
+    <option name="AFTER_PATH" value="target/classes/com/bjtu/dao/UserMapper.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_4_17_13_27_[Default_Changelist]/UserMapper.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/bjtu/controller/UserController.class" />
+    <option name="AFTER_PATH" value="target/classes/com/bjtu/controller/UserController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_4_17_13_27_[Default_Changelist]/UserController.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/bjtu/bean/Order.class" />
+    <option name="AFTER_PATH" value="target/classes/com/bjtu/bean/Order.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_4_17_13_27_[Default_Changelist]/Order.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/bjtu/dao/BookMapper.class" />
+    <option name="AFTER_PATH" value="target/classes/com/bjtu/dao/BookMapper.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_4_17_13_27_[Default_Changelist]/BookMapper.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/META-INF/EBookStore.kotlin_module" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/bjtu/dao/OrderItemMapper.class" />
+    <option name="AFTER_PATH" value="target/classes/com/bjtu/dao/OrderItemMapper.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_4_17_13_27_[Default_Changelist]/OrderItemMapper.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/TestSSM.class" />
+    <option name="AFTER_PATH" value="target/test-classes/TestSSM.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_4_17_13_27_[Default_Changelist]/TestSSM.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/bjtu/service/UserService.class" />
+    <option name="AFTER_PATH" value="target/classes/com/bjtu/service/UserService.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_4_17_13_27_[Default_Changelist]/UserService.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/bjtu/bean/Book.class" />
+    <option name="AFTER_PATH" value="target/classes/com/bjtu/bean/Book.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_4_17_13_27_[Default_Changelist]/Book.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/bjtu/dao/OrderMapper.class" />
+    <option name="AFTER_PATH" value="target/classes/com/bjtu/dao/OrderMapper.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_4_17_13_27_[Default_Changelist]/OrderMapper.class" />
+  </binary>
+</changelist>

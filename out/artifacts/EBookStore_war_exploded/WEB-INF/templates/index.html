@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ch" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>书店</title>
+    <link rel="stylesheet" th:href="@{/static/index.css}">
+    <link rel="stylesheet" th:href="@{/static/base.css}">
+    <style>
+        html, body {
+            height: 100%;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .w {
+            width: 1000px;
+            margin: auto;
+        }
+
+        .nav {
+            height: 70px;
+            background: azure;
+        }
+
+        .side-nav {
+            float: left;
+            width: 100px;
+            height: 500px;
+            background: antiquewhite;
+        }
+
+        .side-nav ul {
+            width: 100%;
+        }
+
+        .side-nav li {
+            margin: auto;
+        }
+
+        .side-nav a {
+            text-align: center;
+        }
+
+        .content {
+            float: left;
+            width: calc(100% - 100px);
+            height: 500px;
+            background: gray;
+        }
+    </style>
+</head>
+<body>
+<div class="nav w">
+    nav
+</div>
+<!--/*@thymesVar id="user" type="com.bjtu.bean.User"*/-->
+<div class="w">
+    <div class="side-nav">
+        <ul th:if="!${user.isAdmin}">
+            <li><a href="#">商城</a></li>
+            <li><a href="#">购物车</a></li>
+            <li><a href="#">订单</a></li>
+        </ul>
+        <ul th:if="${user.isAdmin}">
+            <li><a href="#">商城物品管理</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        content
+    </div>
+</div>
+
+
+</body>
+</html>

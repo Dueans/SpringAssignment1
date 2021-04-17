@@ -1,0 +1,89 @@
+Index: src/main/java/com/bjtu/controller/UserController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.bjtu.controller;\r\n\r\nimport com.bjtu.bean.User;\r\nimport com.bjtu.service.UserService;\r\nimport org.springframework.beans.factory.annotation.Autowired;\r\nimport org.springframework.stereotype.Controller;\r\nimport org.springframework.ui.Model;\r\nimport org.springframework.web.bind.annotation.GetMapping;\r\nimport org.springframework.web.bind.annotation.PathVariable;\r\nimport org.springframework.web.bind.annotation.RequestMapping;\r\n\r\n@Controller\r\npublic class UserController {\r\n    @Autowired\r\n    private UserService userService;\r\n\r\n    @GetMapping(\"/register\")\r\n    public String register(String username, String password, Model model) {\r\n        String msg;\r\n\r\n        if (userService.register(username, password)) {\r\n            msg = \"注册成功\";\r\n        } else {\r\n            msg = \"用户名已存在\";\r\n        }\r\n\r\n        model.addAttribute(\"msg\", msg);\r\n        return \"index\";\r\n    }\r\n\r\n    @GetMapping(\"/login\")\r\n    public String login(String username, String password, Model model) {\r\n        String msg;\r\n\r\n        User user = userService.login(username, password);\r\n\r\n        if (user == null) {\r\n            msg = \"登陆失败\";\r\n        } else if (user.getIsAdmin()) {\r\n            msg = \"管理员登录\";\r\n        } else {\r\n            msg = \"普通用户登录\";\r\n        }\r\n\r\n        model.addAttribute(\"msg\", msg);\r\n        return \"index\";\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/bjtu/controller/UserController.java	(revision 965d46d9e11687eae97fb9982aee2ff3ec29e630)
++++ src/main/java/com/bjtu/controller/UserController.java	(date 1618638287882)
+@@ -31,7 +31,7 @@
+     @GetMapping("/login")
+     public String login(String username, String password, Model model) {
+         String msg;
+-
++        System.out.println("可以到这了");
+         User user = userService.login(username, password);
+ 
+         if (user == null) {
+@@ -41,7 +41,6 @@
+         } else {
+             msg = "普通用户登录";
+         }
+-
+         model.addAttribute("msg", msg);
+         return "index";
+     }
+Index: .idea/dataSources.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"DataSourceManagerImpl\" format=\"xml\" multifile-model=\"true\">\r\n    <data-source source=\"LOCAL\" name=\"server\" uuid=\"750fb68e-1e2e-49c2-a4b6-b9955af48cbc\">\r\n      <driver-ref>mysql.8</driver-ref>\r\n      <synchronize>true</synchronize>\r\n      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>\r\n      <jdbc-url>jdbc:mysql://8.136.0.226:3306</jdbc-url>\r\n    </data-source>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/dataSources.xml	(revision 965d46d9e11687eae97fb9982aee2ff3ec29e630)
++++ .idea/dataSources.xml	(date 1618637922606)
+@@ -7,5 +7,11 @@
+       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+       <jdbc-url>jdbc:mysql://8.136.0.226:3306</jdbc-url>
+     </data-source>
++    <data-source source="LOCAL" name="MySQL - @8.136.0.226" uuid="60db0f95-866d-4eb7-8b17-88515eec8a3d">
++      <driver-ref>mysql.8</driver-ref>
++      <synchronize>true</synchronize>
++      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
++      <jdbc-url>jdbc:mysql://8.136.0.226:3306</jdbc-url>
++    </data-source>
+   </component>
+ </project>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"MavenProjectsManager\">\r\n    <option name=\"originalFiles\">\r\n      <list>\r\n        <option value=\"$PROJECT_DIR$/pom.xml\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_1_8\" project-jdk-name=\"1.8\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/misc.xml	(revision 965d46d9e11687eae97fb9982aee2ff3ec29e630)
++++ .idea/misc.xml	(date 1618637268673)
+@@ -8,7 +8,7 @@
+       </list>
+     </option>
+   </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="14" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"CompilerConfiguration\">\r\n    <annotationProcessing>\r\n      <profile name=\"Maven default annotation processors profile\" enabled=\"true\">\r\n        <sourceOutputDir name=\"target/generated-sources/annotations\" />\r\n        <sourceTestOutputDir name=\"target/generated-test-sources/test-annotations\" />\r\n        <outputRelativeToContentRoot value=\"true\" />\r\n        <module name=\"EBookStore\" />\r\n      </profile>\r\n    </annotationProcessing>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/compiler.xml	(revision 965d46d9e11687eae97fb9982aee2ff3ec29e630)
++++ .idea/compiler.xml	(date 1618637268733)
+@@ -2,10 +2,12 @@
+ <project version="4">
+   <component name="CompilerConfiguration">
+     <annotationProcessing>
++      <profile default="true" name="Default" enabled="true" />
+       <profile name="Maven default annotation processors profile" enabled="true">
+         <sourceOutputDir name="target/generated-sources/annotations" />
+         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+         <outputRelativeToContentRoot value="true" />
++        <module name="SpringAssignment1" />
+         <module name="EBookStore" />
+       </profile>
+     </annotationProcessing>
