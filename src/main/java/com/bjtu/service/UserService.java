@@ -5,29 +5,42 @@ import com.bjtu.dao.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
+
 @Service
 public class UserService {
 
     @Autowired
     UserMapper userMapper;
 
-    public boolean register(String username, String password) {
-        User user = new User(null, username, password, false);
-        return userMapper.insert(user) == 1;
+    public String checkUsername(String username) {
+        return userMapper.selectByUsername(username) == null ? "101" : "102";
     }
 
-    public User login(String username,String password){
-
-        return userMapper.selectByUsername(username);
+    public String register(User user) {
+        user.setIsAdmin(false);
+        return userMapper.insert(user) == 1 ? "success" : "failure";
     }
 
-    public boolean changePassword(int userId,String newPassword){
+    public String login(User loginUser, HttpSession httpSession) {
+        User user = userMapper.selectByUsername(loginUser.getUsername());
+        if (user == null) {
+            return "101";
+        } else if (user.getPassword().equals(loginUser.getPassword())) {
+            httpSession.setAttribute("user", user);
+            return "100";
+        } else {
+            return "102";
+        }
+    }
+
+    public boolean changePassword(int userId, String newPassword) {
 
         return false;
     }
 
     // 注销账户
-    public boolean cancelAccount(){
+    public boolean cancelAccount() {
         return false;
     }
 
