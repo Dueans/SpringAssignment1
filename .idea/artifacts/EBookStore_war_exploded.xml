@@ -5,7 +5,7 @@
       <element id="javaee-facet-resources" facet="EBookStore/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="EBookStore" />
+          <element id="artifact" artifact-name="EBookStore" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />

@@ -23,7 +23,6 @@ public class UserController {
         } else {
             msg = "用户名已存在";
         }
-
         model.addAttribute("msg", msg);
         return "index";
     }
@@ -31,7 +30,6 @@ public class UserController {
     @GetMapping("/login")
     public String login(String username, String password, Model model) {
         String msg;
-
         User user = userService.login(username, password);
 
         if (user == null) {
