@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bjtu.dao.UserMapper">
+
+    <resultMap id="BaseResultMap" type="com.bjtu.bean.User">
+        <id column="user_id" jdbcType="INTEGER" property="userId"/>
+        <result column="username" jdbcType="VARCHAR" property="username"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="is_admin" jdbcType="BIT" property="isAdmin"/>
+    </resultMap>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from user
+        where user_id = #{userId,jdbcType=INTEGER}
+    </delete>
+
+    <insert id="insert" parameterType="com.bjtu.bean.User">
+        insert into user (user_id, username, password,
+        is_admin)
+        values (#{userId,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+        #{isAdmin,jdbcType=BIT})
+    </insert>
+
+    <update id="updateByPrimaryKey" parameterType="com.bjtu.bean.User">
+        update user
+        set username = #{username,jdbcType=VARCHAR},
+        password = #{password,jdbcType=VARCHAR},
+        is_admin = #{isAdmin,jdbcType=BIT}
+        where user_id = #{userId,jdbcType=INTEGER}
+    </update>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select user_id, username, password, is_admin
+        from user
+        where user_id = #{userId,jdbcType=INTEGER}
+    </select>
+
+    <select id="selectAll" resultMap="BaseResultMap">
+        select user_id, username, password, is_admin
+        from user
+    </select>
+
+    <select id="selectByUsername" parameterType="String" resultMap="BaseResultMap">
+        select user_id, username, password, is_admin
+        from user
+        where username = #{username}
+    </select>
+</mapper>

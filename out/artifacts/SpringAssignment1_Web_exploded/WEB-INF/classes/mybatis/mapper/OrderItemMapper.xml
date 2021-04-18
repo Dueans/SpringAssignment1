@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bjtu.dao.OrderItemMapper">
+  <resultMap id="BaseResultMap" type="com.bjtu.bean.OrderItem">
+    <id column="order_id" jdbcType="INTEGER" property="orderId" />
+    <id column="book_id" jdbcType="INTEGER" property="bookId" />
+    <result column="amount" jdbcType="INTEGER" property="amount" />
+  </resultMap>
+
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from order_item
+    where order_id = #{orderId,jdbcType=INTEGER}
+      and book_id = #{bookId,jdbcType=INTEGER}
+  </delete>
+
+  <insert id="insert" parameterType="com.bjtu.bean.OrderItem">
+    insert into order_item (order_id, book_id, amount
+      )
+    values (#{orderId,jdbcType=INTEGER}, #{bookId,jdbcType=INTEGER}, #{amount,jdbcType=INTEGER}
+      )
+  </insert>
+
+  <update id="updateByPrimaryKey" parameterType="com.bjtu.bean.OrderItem">
+    update order_item
+    set amount = #{amount,jdbcType=INTEGER}
+    where order_id = #{orderId,jdbcType=INTEGER}
+      and book_id = #{bookId,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select order_id, book_id, amount
+    from order_item
+    where order_id = #{orderId,jdbcType=INTEGER}
+      and book_id = #{bookId,jdbcType=INTEGER}
+  </select>
+
+  <select id="selectAll" resultMap="BaseResultMap">
+    select order_id, book_id, amount
+    from order_item
+  </select>
+</mapper>

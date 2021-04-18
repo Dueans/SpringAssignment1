@@ -1,0 +1,17 @@
+Index: src/main/java/com/bjtu/controller/BookController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.bjtu.controller;\r\n\r\n\r\nimport com.bjtu.bean.Book;\r\nimport com.bjtu.service.BookService;\r\nimport com.sun.org.apache.xpath.internal.operations.Mod;\r\nimport org.springframework.beans.factory.annotation.Autowired;\r\nimport org.springframework.stereotype.Controller;\r\nimport org.springframework.ui.Model;\r\nimport org.springframework.web.bind.annotation.*;\r\n\r\n@Controller\r\n@RequestMapping(\"/book\")\r\npublic class BookController {\r\n    @Autowired\r\n    private BookService bookService;\r\n\r\n    @RequestMapping(\"/all\")\r\n    public String getBooks(Model model){\r\n        model.addAttribute(\"books\",bookService.getBooks());\r\n        return \"list\";//需要修改\r\n    }\r\n\r\n    @RequestMapping(value = \"/{id}\",method = RequestMethod.GET)\r\n    public String getBookByID(@PathVariable Integer id, Model model){\r\n        model.addAttribute(\"book\",bookService.getBookByID(id));\r\n        return \"detail\";//需要修改\r\n    }\r\n\r\n    @RequestMapping(method = RequestMethod.POST)\r\n    public String addBook(Book book,Model model){\r\n        if (bookService.saveBook(book) == 0){\r\n            model.addAttribute(\"result\",\"false\");\r\n            return \"addpage\";//需要修改\r\n        }\r\n        else {\r\n            model.addAttribute(\"result\",\"success\");\r\n            return \"redirect:/book/all\";\r\n        }\r\n    }\r\n\r\n    @RequestMapping(value = \"/{id}\",method = RequestMethod.PUT)\r\n    public String updateBook(Book book,Model model){\r\n        if (bookService.updateBook(book) == 0){\r\n            model.addAttribute(\"result\",\"false\");\r\n            return \"updatepage\";//需要修改\r\n        }\r\n        else {\r\n            model.addAttribute(\"result\",\"success\");\r\n            return \"redirect:/book/all\";\r\n        }\r\n    }\r\n\r\n    @RequestMapping(value = \"/{id}\",method = RequestMethod.DELETE)\r\n    public String daleteBook(@PathVariable Integer id,Model model){\r\n        if (bookService.deleteBook(id) == 0){\r\n            model.addAttribute(\"result\",\"false\");\r\n        }\r\n        else {\r\n            model.addAttribute(\"result\",\"success\");\r\n        }\r\n        return \"redirect:/book/all\";\r\n    }\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/bjtu/controller/BookController.java	(revision 7f1f1b1ec2ff23d78884244c9a6b7708ff4bfd04)
++++ src/main/java/com/bjtu/controller/BookController.java	(date 1618671542694)
+@@ -3,7 +3,6 @@
+ 
+ import com.bjtu.bean.Book;
+ import com.bjtu.service.BookService;
+-import com.sun.org.apache.xpath.internal.operations.Mod;
+ import org.springframework.beans.factory.annotation.Autowired;
+ import org.springframework.stereotype.Controller;
+ import org.springframework.ui.Model;
