@@ -1,70 +1,89 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-	<head lang="en">
-		<meta charset="UTF-8">
-		<title>书店</title>
-		<link rel="stylesheet" type="text/css" th:href="@{static/dist/css/bootstrap.min.css}">
-		<link rel="stylesheet" type="text/css" th:href="@{static/css/index.css}" />
-		<link rel="stylesheet" type="text/css" th:href="@{static/css/animate.css}" />
-	</head>
-	<body>
-		<!--导航部分  begin-->
-		<div th:replace="common/header :: header"></div>
-		<!--导航部分 end-->
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>书店</title>
+    <link rel="stylesheet" type="text/css" th:href="@{static/dist/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{static/css/index.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{static/css/animate.css}"/>
+</head>
+<body>
+<!--导航部分  begin-->
+<div th:replace="common/header :: header"></div>
+<!--导航部分 end-->
 
-		<!--图书内容部分 begin-->
-		<div class="container">
+<!--图书内容部分 begin-->
+<div class="container">
+    <table id="sample-table-2" class="table table-striped table-bordered table-hover">
+        <thead>
+        <tr>
+            <th >书名</th>
+            <th>作者</th>
+            <th >剩余数量</th>
+            <th >操作</th>
+        </tr>
+        </thead>
+        <tbody>
+		<!--/*@thymesVar id="bookList" type="java.util.List<com.bjtu.bean.Book>"*/-->
+        <tr th:each="book : ${bookList}">
+            <td th:text="${book.title}"></td>
+            <td th:text="${book.author}"></td>
+            <td th:text="${book.amount}"></td>
+            <td>加入购物车</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<!--图书内容部分end-->
 
-		</div>
-		<!--图书内容部分end-->
+<!-- 登录模态框（Modal） -->
+<!-- 注册modal end/.modal -->
+<div th:replace="common/bookModal :: bookModal"></div>
 
-		<!-- 登录模态框（Modal） -->
-		<!-- 注册modal end/.modal -->
-		<div th:replace="common/bookModal :: bookModal"></div>
+<script th:src="@{static/dist/js/jquery.min.js}"></script>
+<script th:src="@{static/js/carousel.js}" type="text/javascript" charset="utf-8"></script>
+<script th:src="@{static//dist/js/bootstrap.min.js}"></script>
+<script th:src="@{static/js/wow.js}"></script>
+<script th:src="@{static/js/login_reg.js}"></script>
+<script th:inline="javascript">
+    //获取应用路径
+    var contextPath = [[${#request.getContextPath()}]];
+</script>
+<script type="text/javascript">
+    if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))) {
+        new WOW().init();
+    }
+    ;
 
-		<script th:src="@{static/dist/js/jquery.min.js}"></script>
-		<script th:src="@{static/js/carousel.js}" type="text/javascript" charset="utf-8"></script>
-		<script th:src="@{static//dist/js/bootstrap.min.js}"></script>
-		<script th:src="@{static/js/wow.js}"></script>
-		<script th:src="@{static/js/login_reg.js}"></script>
-		<script th:inline="javascript">
-			//获取应用路径
-			var contextPath = [[${#request.getContextPath()}]];
-		</script>
-		<script type="text/javascript">
-			if(!(/msie [6|7|8|9]/i.test(navigator.userAgent))) {
-				new WOW().init();
-			};
+    $(function () {
+        // $("#selected").load(contextPath + "/book/getBookData",buildQuery(1,1));
+        // $("#recommend").load(contextPath + "/book/getBookData",buildQuery(1,2));
+        // $("#bargain").load(contextPath + "/book/getBookData",buildQuery(1,3));
+    })
 
-			$(function () {
-				// $("#selected").load(contextPath + "/book/getBookData",buildQuery(1,1));
-				// $("#recommend").load(contextPath + "/book/getBookData",buildQuery(1,2));
-				// $("#bargain").load(contextPath + "/book/getBookData",buildQuery(1,3));
-            })
+    //加载其他页数据
+    function loadData(page, category) {
+        // var node;
+        // if(category == 1){
+        //     node = "selected";
+        // } else if(category == 2) {
+        //     node = "recommend";
+        // }else {
+        //     node = "bargain";
+        // }
+        // $("#" + node).load(contextPath + "/book/getBookData",buildQuery(page,category));
+    }
 
-			//加载其他页数据
-			function loadData(page,category) {
-			    // var node;
-			    // if(category == 1){
-			    //     node = "selected";
-				// } else if(category == 2) {
-			    //     node = "recommend";
-				// }else {
-                //     node = "bargain";
-				// }
-                // $("#" + node).load(contextPath + "/book/getBookData",buildQuery(page,category));
-            }
-            
-            //包装查询参数
-			function buildQuery(page,category) {
-				var query = {};
-				query.page = typeof page == "undefined" ? 1 : page;
-				query.category = category;
-				return query;
-            }
+    //包装查询参数
+    function buildQuery(page, category) {
+        var query = {};
+        query.page = typeof page == "undefined" ? 1 : page;
+        query.category = category;
+        return query;
+    }
 
-		</script>
-	</body>
+</script>
+</body>
 
 </html>
