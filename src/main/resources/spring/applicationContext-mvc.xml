@@ -22,24 +22,16 @@
         <property name="maxUploadSize" value="#{1024*1024*20}"/>
     </bean>
 
-    <!--thymeleaf模板解析器-->
     <bean id="templateResolver" class="org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver">
-        <!--前缀配置-->
         <property name="prefix" value="/WEB-INF/templates/"/>
-        <!--后缀配置-->
         <property name="suffix" value=".html"/>
-        <!--模板类型-->
         <property name="templateMode" value="HTML"/>
-        <!--不使用缓存-->
         <property name="cacheable" value="false"/>
-        <!--编码类型-->
         <property name="characterEncoding" value="UTF-8"/>
     </bean>
-    <!--模板引擎配置-->
     <bean id="templateEngine" class="org.thymeleaf.spring5.SpringTemplateEngine">
         <property name="templateResolver" ref="templateResolver"/>
     </bean>
-    <!--视图处理器-->
     <bean class="org.thymeleaf.spring5.view.ThymeleafViewResolver">
         <property name="templateEngine" ref="templateEngine"/>
         <property name="characterEncoding" value="UTF-8"/>
