@@ -38,8 +38,7 @@ public class UserController {
         return userService.login(user,httpSession);
     }
 
-    @ResponseBody
-    @RequestMapping("/user/logout")
+    @RequestMapping("/logout")
     public String logout(HttpSession httpSession) {
         httpSession.invalidate();
         return "redirect:index";
