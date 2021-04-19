@@ -10,18 +10,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/book")
 public class BookController {
     @Autowired
     private BookService bookService;
 
-    @RequestMapping("/all")
+    @RequestMapping("/index")
     public String getBooks(Model model){
-        model.addAttribute("books",bookService.getBooks());
-        return "list";//需要修改
+        model.addAttribute("bookList",bookService.getBooks());
+        return "index";//需要修改
     }
 
-    @RequestMapping(value = "/{id}",method = RequestMethod.GET)
+    @RequestMapping(value = "/book/{id}",method = RequestMethod.GET)
     public String getBookByID(@PathVariable Integer id, Model model){
         model.addAttribute("book",bookService.getBookByID(id));
         return "detail";//需要修改
@@ -61,6 +60,5 @@ public class BookController {
         }
         return "redirect:/book/all";
     }
-
 
 }

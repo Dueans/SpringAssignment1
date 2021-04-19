@@ -1,7 +1,11 @@
 package com.bjtu.dao;
 
 import com.bjtu.bean.Order;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.Date;
 import java.util.List;
+
 
 public interface OrderMapper {
     int deleteByPrimaryKey(Integer orderId);
@@ -13,4 +17,6 @@ public interface OrderMapper {
     List<Order> selectAll();
 
     int updateByPrimaryKey(Order record);
+
+    int selectByUserIdAndCreateDate(Order record);
 }

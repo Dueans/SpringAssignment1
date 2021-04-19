@@ -1,37 +1,32 @@
 package com.bjtu.controller;
 
 import com.bjtu.bean.Book;
+import com.bjtu.bean.Cart;
 import com.bjtu.bean.User;
-import com.bjtu.service.BookService;
+import com.bjtu.dao.BookMapper;
+import com.bjtu.dao.CartMapper;
 import com.bjtu.service.UserService;
+import com.bjtu.vo.CartItemVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 public class UserController {
     @Autowired
     private UserService userService;
-    @Autowired
-    private BookService bookService;
-
-    @GetMapping("/index")
-    public String index(Model model) {
-        List<Book> bookList = bookService.getBooks();
-        model.addAttribute("bookList",bookList);
-        return "index";
-    }
 
     @ResponseBody
     @PostMapping("/user/checkUsername")
-    public String checkUsername(String username){
+    public String checkUsername(String username) {
         return userService.checkUsername(username);
     }
 
@@ -44,7 +39,7 @@ public class UserController {
     @ResponseBody
     @RequestMapping("/user/login")
     public String login(User user, HttpSession httpSession) {
-        return userService.login(user,httpSession);
+        return userService.login(user, httpSession);
     }
 
     @RequestMapping("/logout")

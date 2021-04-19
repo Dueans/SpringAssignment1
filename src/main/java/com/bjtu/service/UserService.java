@@ -9,7 +9,6 @@ import javax.servlet.http.HttpSession;
 
 @Service
 public class UserService {
-
     @Autowired
     UserMapper userMapper;
 
@@ -33,15 +32,4 @@ public class UserService {
             return "102";
         }
     }
-
-    public boolean changePassword(int userId, String newPassword) {
-
-        return false;
-    }
-
-    // 注销账户
-    public boolean cancelAccount() {
-        return false;
-    }
-
 }
