@@ -22,7 +22,6 @@ public class CartController {
 
     @RequestMapping("/cart")
     public String cartList(int userId, Model model, HttpSession session) {
-        session.setAttribute("userId", userId);
         List<CartItemVo> cartItemVoList = cartService.getCartItem(userId);
 
         BigDecimal totalPrice = cartService.getTotal(cartItemVoList);

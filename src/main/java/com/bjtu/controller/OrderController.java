@@ -14,13 +14,12 @@ import java.util.Date;
 
 @Controller
 public class OrderController {
-
     @Autowired
     private OrderService orderService;
 
-    public String viewOrder(int userId, Model model) {
-
-
+    @RequestMapping("/orderList")
+    public String viewOrder(Order order, Model model) {
+        orderService.viewOrder(order, model);
         return "order_list";
     }
 

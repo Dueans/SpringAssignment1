@@ -9,6 +9,7 @@ import com.bjtu.dao.OrderMapper;
 import com.bjtu.vo.CartItemVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import java.util.List;
 
@@ -36,7 +37,7 @@ public class OrderService {
         }
         //插入
         orderMapper.insert(order);
-        int orderId = orderMapper.selectByUserIdAndCreateDate(order);
+        int orderId = orderMapper.selectOrderId(order);
         for (CartItemVo cartItem : cartItems) {
             Book book = bookMapper.selectByPrimaryKey(cartItem.getBookId());
             book.setAmount(book.getAmount() - cartItem.getAmount());
@@ -46,6 +47,16 @@ public class OrderService {
         }
         cartService.clear(order.getUserId());
         return "success";
+    }
+
+    public void viewOrder(Order order, Model model){
+        List<Order> orderList = orderMapper.selectByUserId(order.getUserId());
+        model.addAttribute("orderList",orderList);
+        if (orderList.size()!=0){
+            model.addAttribute("hasOrder",true);
+        }else {
+            model.addAttribute("hasOrder",false);
+        }
     }
 
 }

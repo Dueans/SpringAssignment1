@@ -37,14 +37,21 @@
     </select>
 
     <select id="selectAll" resultMap="BaseResultMap">
-        select order_id, user_id, creat_date, total_price
+        select order_id, user_id, creat_date,total_price
         from user_order
     </select>
 
-    <select id="selectByUserIdAndCreateDate" parameterType="com.bjtu.bean.Order" resultType="int">
+    <select id="selectOrderId" parameterType="com.bjtu.bean.Order" resultType="int">
         select order_id
         from user_order
         where user_id = #{userId,jdbcType=INTEGER}
-          and creat_date = #{creatDate,jdbcType=DATE};
+          and creat_date = #{creatDate,jdbcType=DATE}
+          and total_price = #{totalPrice,jdbcType=DECIMAL}
+    </select>
+
+    <select id="selectByUserId" parameterType="int" resultMap="BaseResultMap">
+        select order_id, user_id, creat_date, total_price
+        from user_order
+        where user_id = #{userId,jdbcType=INTEGER}
     </select>
 </mapper>

@@ -18,5 +18,7 @@ public interface OrderMapper {
 
     int updateByPrimaryKey(Order record);
 
-    int selectByUserIdAndCreateDate(Order record);
+    int selectOrderId(Order order);
+
+    List<Order> selectByUserId(Integer userId);
 }
